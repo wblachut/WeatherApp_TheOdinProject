@@ -27,7 +27,7 @@ html {
 }
 
 .apply-loc-btn {
-  width: 300px;
+  width: 32vh;
   height: 50px;
   justify-self: center;
   align-self: center;
@@ -83,7 +83,7 @@ h1 {
 }
 
 .custom-shape-divider-bottom-1607689767 {
-  display: none;
+  /* display: none; */
   position: absolute;
   bottom: 55vh;
   left: 0;
@@ -125,9 +125,16 @@ h1 {
 
 #city-in {
   display: none;
+  height: 40px;
 }
 
-#city-in, .search-btn {
+#city-in,
+.search-btn {
+  position: absolute;
+  top: 27vh;
+  left: 50%;
+  transform: translate(-50%);
+  /* padding: 4vh; */
   margin: auto;
   text-align: center;
   width: 70%;
@@ -140,6 +147,9 @@ h1 {
 }
 
 #city-in::placeholder {
+  /* font-weight: 300; */
+  font-size: 2rem;;
+  text-transform: none;
   background-color: none;
   color: #fff;
   opacity: 0.6;
@@ -151,8 +161,47 @@ h1 {
 }
 
 
+.city-slide {
+  position: absolute;
+  top: 27vh;
+  left: 50%;
+  transform: translate(-50%);
+  /* padding: 2vh; */
+  margin-top: 0px;
+  margin-bottom: 0px;
+  display: none;
+  /* overflow: hidden; */
+  font-size: 35px;
+  line-height: 50px;
+  color: #ecf0f1;
+  /* height: fit-content; */
+}
+
+.city-slide-box {
+    font-weight: 600;
+    overflow: hidden;
+    height: 40px;
+  }
+
+.city-slide-box-li {
+      margin-top: 0;
+      text-align: center;
+      list-style: none;
+      -webkit-animation-name: change;
+      -webkit-animation-duration: 12s;
+      -webkit-animation-iteration-count: infinite;
+      animation-name: change;
+      animation-duration: 12s;
+      animation-iteration-count: infinite;
+}
+
+.city-slide-box-li-el {
+    line-height:40px;
+    margin:0;
+}
 
 .search-btn {
+  top: 38vh;
   font-size: 2rem;
   font-weight: 700;
   transition: transform .1s ease-out;
@@ -160,22 +209,23 @@ h1 {
 }
 
 .search-btn:hover {
-  transform: scale(1.1);
   font-size: 2rem;
   font-weight: 700;
 }
 
 .weather-display {
-  width: 80vw;
+  width: 100vw;
   display: inline-flex;
-  margin: 2vh 10vw 0vh 10vw ;
+  margin: 1vh 0vw 0vh 0vw ;
   align-self: center;
   justify-self: center;
   justify-content: space-evenly;
 }
 
 .location-txt {
-  padding: 2rem;
+  padding: 3vh 0vh;
+  width: fit-content;
+  margin: auto;
 }
 
 .weather-display div {
@@ -186,6 +236,10 @@ h1 {
   background-color: yellow;
 }
 
+.temp-unit-toggle-div {
+  margin-top: 20px
+}
+
 .weather-display-r2 img {
   padding-top: 30px;
   width: 100px;
@@ -194,8 +248,10 @@ h1 {
 .r2-border-wrapper {
   padding: 0%;
   margin: 0%;
-  width: 300px;
-  height: 300px;
+  width: 32vh;
+  height: 32vh;
+  min-width: 280px;
+  min-height: 280px;
   background: linear-gradient(to top, #4fb576 0%, #44c489 15%, #28a9ae 25%, #28a2b7 50%, #4c7788 65%, #6c4f63 80%, #432c39 100%);
   border-radius: 160px;
   padding: 4px !important;
@@ -204,7 +260,9 @@ h1 {
 
 .weather-display-r2 {
   padding: 1px !important;
-  height: 300px;
+  height: 32vh;
+  min-width: 280px;
+  min-height: 280px;
   margin-right: 0px;
   background: #fff;
   box-sizing: border-box;
@@ -214,9 +272,9 @@ h1 {
 
 
 
-/* .wind-disp {
-
-} */
+.wind-disp {
+  margin-bottom: -30px;
+}
 
 .wind-direction {
   padding: 0px;
@@ -231,38 +289,6 @@ h1 {
   display: none;
 }
 
-.city-slide {
-  display: none;
-  height: 160px;
-  overflow: hidden;
-  font-size: 35px;
-  line-height: 50px;
-  color: #ecf0f1;
-}
-
-.city-slide-box {
-    font-weight: 600;
-    overflow: hidden;
-    height: 40px;
-  }
-
-.city-slide-box-li {
-      margin-top: 0;
-      text-align: center;
-      list-style: none;
-      
-      -webkit-animation-name: change;
-      -webkit-animation-duration: 12s;
-      -webkit-animation-iteration-count: infinite;
-      animation-name: change;
-      animation-duration: 12s;
-      animation-iteration-count: infinite;
-}
-
-.city-slide-box-li-el {
-    line-height:40px;
-    margin:0;
-}
 
 
 

@@ -19,6 +19,7 @@ const citySlide = document.querySelector('.city-slide')
 let celsius = ' ºC'
 let fahrenheit = ' F'
 let tempUnit = celsius;
+let data
 
 const celsiusToFahrenheit = celsius => celsius * 9/5 + 32;
 const fahrenheitToCelsius = fahrenheit => (fahrenheit - 32) * 5/9;
@@ -37,13 +38,12 @@ async function getWeather(city = 'Krakow') {
   }
 }
 
-// getWeather();
 getWeatherByLocation();
-// handleTempUnit();
 // console.log('script')
 
 function handleWeatherApp(data) {
   console.log(data);
+
   const imgId = data.weather[0].icon;
   weatherImg.src = `http://openweathermap.org/img/wn/${imgId}@2x.png`
   weatherDescription.innerHTML = data.weather[0].main + ', ' + (data.weather[0].description);
@@ -55,6 +55,7 @@ function handleWeatherApp(data) {
   windDisplayedDeg = data.wind.deg - 90;
   windDirImg.style.transform = `rotate(${windDisplayedDeg}deg)`;
   locationDisplay.innerHTML = `${data.name}, ${data.sys.country}`;
+  handleTempUnit('entry');
 
   console.log(data.weather[0].icon);
   console.log(data.main);
@@ -67,7 +68,7 @@ function handleWeatherApp(data) {
 }
 
 function getWeatherByLocation() {
-  navigator.geolocation.getCurrentPosition(applyWeatherFromLocation, console.error('cannot get user location'))
+  navigator.geolocation.getCurrentPosition(applyWeatherFromLocation, console.log('get user location'))
 
   function applyWeatherFromLocation(position) {
     const lat = position.coords.latitude;
@@ -79,40 +80,24 @@ function getWeatherByLocation() {
   }
 }
 
-function handleTempUnit() {
-  console.log('temp')
-  // if (tempUnit === celsius) {
-  //   tempUnit = fahrenheit;
+function handleTempUnit(mode = 'defaultMode') {
+  console.log('temp', tempUnit)
 
-  //   // handleWeatherApp(data);
-  // } else {
-  //   tempUnit = celsius;
-  //   // handleWeatherApp(data);
-  // }
+  if (tempUnitToggle.checked) {
+    tempUnit = fahrenheit;
+    if (mode === 'entry') {
+      console.log('fetching with fahrenheit', data)
+    tempDisplay.innerHTML = 
+    Math.round(celsiusToFahrenheit(tempDisplay.innerHTML));
+    tempSensedDisplay.innerHTML = Math.round(celsiusToFahrenheit(tempSensedDisplay.innerHTML));
+    handleTempUnit();
+    }
+  } else {
+    tempUnit = celsius;
+  }  
   tempUnitElements[0].innerHTML = tempUnit;
   tempUnitElements[1].innerHTML = tempUnit;
 }
-
-citySlide.addEventListener('click',() => { enableCityInput()});
-applyLocationBtn.addEventListener('click', () => {
-  getWeatherByLocation();
-  disableCityInput();
-});
-searchBtn.addEventListener('click', () => { getWeather(cityInput.value)});
-tempUnitToggle.addEventListener('change', handleTempUnit());
-
-cityInput.addEventListener('keyup', function handleEnterLookup(e) {
-  if (e.keyCode === 13) {
-    e.preventDefault();
-    getWeather(cityInput.value);  
-  }
-  if (cityInput.value === '' && cityInput.focus === false) {
-    setInterval(disableCityInput(), 1000);
-  }
-});
-
-
-
 
 
 function enableCityInput() {
@@ -129,3 +114,50 @@ function disableCityInput() {
   citySlide.classList.add('active');
   }
 }
+
+citySlide.addEventListener('click',() => { enableCityInput()});
+applyLocationBtn.addEventListener('click', () => { getWeatherByLocation();
+  // disableCityInput();
+});
+
+searchBtn.addEventListener('click', () => { getWeather(cityInput.value)});
+
+tempUnitToggle.addEventListener('change', function handleTempSwitch() {
+  if (tempUnitToggle.checked) {
+    console.log("Checkbox is checked..");
+    tempUnit = fahrenheit;
+    console.log(tempUnit)
+    console.log(celsiusToFahrenheit(tempDisplay.innerHTML))
+    tempDisplay.innerHTML = 
+    Math.round(celsiusToFahrenheit(tempDisplay.innerHTML));
+    tempSensedDisplay.innerHTML = Math.round(celsiusToFahrenheit(tempSensedDisplay.innerHTML));
+    handleTempUnit();
+
+  } else {
+    tempUnit = celsius;
+    console.log("Checkbox is not checked..");
+    console.log(tempUnit)
+    console.log(fahrenheitToCelsius(tempDisplay.innerHTML))
+    tempDisplay.innerHTML = 
+    Math.round(fahrenheitToCelsius(tempDisplay.innerHTML));
+    tempSensedDisplay.innerHTML = Math.round(fahrenheitToCelsius(tempSensedDisplay.innerHTML));
+    handleTempUnit();
+  }
+});
+
+cityInput.addEventListener('keyup', function handleEnterLookup(e) {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    getWeather(cityInput.value);  
+  } 
+  else {
+    e.preventDefault();
+    if (cityInput.value === '' && cityInput !== document.activeElement) {
+      setInterval(disableCityInput(), 1000);
+    }
+  }
+});
+
+
+
+
