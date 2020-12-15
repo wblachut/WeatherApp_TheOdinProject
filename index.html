@@ -2,23 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" city-slide="width=device-width, initial-scale=1.0">
   <title>Weather App WB</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="toggle-switch.css">
 </head>
 <body>
   <div class="main">
-
+    
     <div class="search-div">
+      <!-- ⨀ -->
+      <div class="apply-loc-btn" role="button"><h1>use my location<br><span class="big-pnt">◈</span></h1></div>
       <div class="custom-shape-divider-top-1607676385">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
         </svg>
-    </div>
-      <div class="search-div-txt">Check the weather</div>
+      </div>
+        <div class="search-div-txt">Check the weather</div>
       <label for="city-in">Type a city name</label>
-      <input type="text" id="city-in" placeholder="Krakow">
+      <input type="text" id="city-in" placeholder="/">
+      <div class="city-slide active">
+        <div class="city-slide-box">
+          <ul class="city-slide-box-li">
+            <li class="city-slide-box-li-el">Krakow</li>
+            <li class="city-slide-box-li-el">London, GB</li>
+            <li class="city-slide-box-li-el">New York, US</li>
+            <li class="city-slide-box-li-el">Isengard</li>
+          </ul>
+        </div>
+      </div>
       <div class="search-btn">Search</div>
 
       <div class="custom-shape-divider-bottom-1607689767">
@@ -29,39 +41,41 @@
     </div>
     </div>
 
+    <div class="location-display"><h1 style="text-transform: uppercase;" class="location-txt">Your Localization</h1></div>
     <div class="weather-display">
         
       <div class="weather-display-r1">
-        <img src="#" alt="Weather Image">
-        <div class="weather-descript">Weather description: Main, description</div>
+  
         <div class="temperature-disp">Temperature</div>
-        <div class="temp val"></div>
-        <div class="sensed-temp-disp">Feels Like</div>
-        <div class="sensed-temp val"></div>
+        <div class="val"><span class="temp val"></span><span class="temp-unit"></span></div>
+        <div class="pressure-disp">Pressure</div>
+        <div class="pressure val"></div>
+        
         <label class="switch">
         <input type="checkbox" class="temp-toggle">
         <span class="slider round"></span>
       </div>
 
+      <div class="r2-border-wrapper">
       <div class="weather-display-r2">
-
-
-        <div class="pressure-disp">Pressure</div>
-        <div class="pressure val"></div>
-
+        <img src="#" alt="Weather Image">
+        <div class="weather-descript">Weather description: Main, description</div>
+        <div class="sensed-temp-disp">Feels Like</div>
+        <div class="val"><span class="sensed-temp val"></span><span class="temp-unit"></span></div>
+      </div>
+      </div>
+    
+      <div class="weather-display-r3">
         <div class="humidity-disp">Humidity</div>
         <div class="humidity val"></div>
+        <div class="wind-disp">Wind
+        <div class="wind-direction">➼</div></div>
+        
+          <!-- <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIzMnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZXNjLz48ZGVmcy8+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSI+PGcgZmlsbD0iIzkyOTI5MiIgaWQ9Imljb24tNTMtY29tcGFzcy1ub3J0aCI+PHBhdGggZD0iTTE2LDI5IEMyMy4xNzk3MDIxLDI5IDI5LDIzLjE3OTcwMjEgMjksMTYgQzI5LDguODIwMjk3OSAyMy4xNzk3MDIxLDMgMTYsMyBDOC44MjAyOTc5LDMgMyw4LjgyMDI5NzkgMywxNiBDMywyMy4xNzk3MDIxIDguODIwMjk3OSwyOSAxNiwyOSBMMTYsMjkgWiBNMTYsMjggQzIyLjYyNzQxNzMsMjggMjgsMjIuNjI3NDE3MyAyOCwxNiBDMjgsOS4zNzI1ODI2NyAyMi42Mjc0MTczLDQgMTYsNCBDOS4zNzI1ODI2Nyw0IDQsOS4zNzI1ODI2NyA0LDE2IEM0LDIyLjYyNzQxNzMgOS4zNzI1ODI2NywyOCAxNiwyOCBMMTYsMjggWiBNMTYsMjcgQzIyLjA3NTEzMjUsMjcgMjcsMjIuMDc1MTMyNSAyNywxNiBDMjcsOS45MjQ4Njc0NSAyMi4wNzUxMzI1LDUgMTYsNSBDOS45MjQ4Njc0NSw1IDUsOS45MjQ4Njc0NSA1LDE2IEM1LDIyLjA3NTEzMjUgOS45MjQ4Njc0NSwyNyAxNiwyNyBMMTYsMjcgWiBNMTYsNyBDMTYsNyAxOSwxNCAxOSwxNiBDMTksMTYuNjY4MDY4IDE5LDE2IDE5LDE2IEMxOSwxNy42NTY4NTQyIDE3LjY1MzQ4MjksMTkgMTYsMTkgQzE0LjM0MzE0NTgsMTkgMTMsMTcuNjYzMTM3OCAxMywxNiBDMTMsMTYgMTMsMTcuMjA5OTk5MSAxMywxNiBDMTMsMTQgMTYsNyAxNiw3IEwxNiw3IFogTTE2LDE4IEMxNy4xMDQ1Njk2LDE4IDE4LDE3LjEwNDU2OTYgMTgsMTYgQzE4LDE0Ljg5NTQzMDQgMTcuMTA0NTY5NiwxNCAxNiwxNCBDMTQuODk1NDMwNCwxNCAxNCwxNC44OTU0MzA0IDE0LDE2IEMxNCwxNy4xMDQ1Njk2IDE0Ljg5NTQzMDQsMTggMTYsMTggTDE2LDE4IFoiIGlkPSJjb21wYXNzLW5vcnRoIi8+PC9nPjwvZz48L3N2Zz4=" alt="wind-direction" class="wind-direction"> -->
+          <div class=" val"><span class="wind"></span></div>
 
-        <div class="wind-disp">Wind</div>
-        <div class=" val"><span class="wind"></span><span class="wind-direction"></span>
-
-          <!-- Please refer: https://github.com/shubhamjain/svg-loader -->
-<!-- 
-<svg data-src="https://s.svgbox.net/hero-solid.svg?ic=archive" width="32" height="32" fill="currentColor"></svg>
-
-        <svg>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIzMnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZXNjLz48ZGVmcy8+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSI+PGcgZmlsbD0iIzkyOTI5MiIgaWQ9Imljb24tNTMtY29tcGFzcy1ub3J0aCI+PHBhdGggZD0iTTE2LDI5IEMyMy4xNzk3MDIxLDI5IDI5LDIzLjE3OTcwMjEgMjksMTYgQzI5LDguODIwMjk3OSAyMy4xNzk3MDIxLDMgMTYsMyBDOC44MjAyOTc5LDMgMyw4LjgyMDI5NzkgMywxNiBDMywyMy4xNzk3MDIxIDguODIwMjk3OSwyOSAxNiwyOSBMMTYsMjkgWiBNMTYsMjggQzIyLjYyNzQxNzMsMjggMjgsMjIuNjI3NDE3MyAyOCwxNiBDMjgsOS4zNzI1ODI2NyAyMi42Mjc0MTczLDQgMTYsNCBDOS4zNzI1ODI2Nyw0IDQsOS4zNzI1ODI2NyA0LDE2IEM0LDIyLjYyNzQxNzMgOS4zNzI1ODI2NywyOCAxNiwyOCBMMTYsMjggWiBNMTYsNyBDMTYsNyAxOSwxNCAxOSwxNiBDMTksMTYuNjY4MDY4IDE5LDE2IDE5LDE2IEMxOSwxNy42NTY4NTQyIDE3LjY1MzQ4MjksMTkgMTYsMTkgQzE0LjM0MzE0NTgsMTkgMTMsMTcuNjYzMTM3OCAxMywxNiBDMTMsMTYgMTMsMTcuMjA5OTk5MSAxMywxNiBDMTMsMTQgMTYsNyAxNiw3IEwxNiw3IFogTTE2LDE4IEMxNy4xMDQ1Njk2LDE4IDE4LDE3LjEwNDU2OTYgMTgsMTYgQzE4LDE0Ljg5NTQzMDQgMTcuMTA0NTY5NiwxNCAxNiwxNCBDMTQuODk1NDMwNCwxNCAxNCwxNC44OTU0MzA0IDE0LDE2IEMxNCwxNy4xMDQ1Njk2IDE0Ljg5NTQzMDQsMTggMTYsMTggTDE2LDE4IFoiIGlkPSJjb21wYXNzLW5vcnRoIi8+PC9nPjwvZz48L3N2Zz4=</svg></div> -->
-
-      </div>
+        
+      
     </div>
 
   </div>
