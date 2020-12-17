@@ -1,3 +1,11 @@
+:root {
+  /* --gradient: #4fb576 0%, #44c489 15%, #28a9ae 25%, #28a2b7 50%, #4c7788 65%, #6c4f63 80%, #432c39 100%; */
+  /* --gradient: #473B7B 0%, #3584A7 51%, #30D2BE 100%; */
+  --gradient: #380036 0%, #0cbaba 80%;
+  --gradStart: #380036;
+  --gradEnd: #0cbaba;
+}
+
 * {
   margin: 0%;
   padding: 0%;
@@ -22,8 +30,12 @@ html {
   height: 45vh;
   display: flex;
   flex-direction: column;
-  background-color: #e5e2db;
-  background-image: linear-gradient(to top, #4fb576 0%, #44c489 15%, #28a9ae 25%, #28a2b7 50%, #4c7788 65%, #6c4f63 80%, #432c39 100%);
+  background-color: var(--gradEnd);
+  background-image: linear-gradient(to top, var(--gradient));
+}
+
+.apply-loc-btn:hover {
+  transform: scale(1.05);
 }
 
 .apply-loc-btn {
@@ -41,7 +53,7 @@ html {
 h1 {
   margin-top: 5px;
   font-size: 1.7rem;
-  background: linear-gradient(to right, #4fb576 0%, #44c489 15%, #28a9ae 25%, #28a2b7 50%, #4c7788 65%, #6c4f63 80%, #432c39 100%);
+  background: linear-gradient(to left, var(--gradient));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -49,17 +61,8 @@ h1 {
 }
 
 .big-pnt {
-  font-size: 4rem;
-  /* border-radius: 50%; */
-  /* -webkit-transition: -webkit-transform .8s ease-in-out; */
-          /* transition:         transform .8s ease-in-out; */
+  font-size: 3.5rem;
 }
-
-/* .apply-loc-btn:hover .big-pnt {
-  -webkit-transform: rotate(360deg);
-          transform: rotate(60deg);
-          transform: scale(1.1);
-} */
 
 .custom-shape-divider-top-1607676385 {
   position: absolute;
@@ -83,7 +86,6 @@ h1 {
 }
 
 .custom-shape-divider-bottom-1607689767 {
-  /* display: none; */
   position: absolute;
   bottom: 55vh;
   left: 0;
@@ -131,10 +133,9 @@ h1 {
 #city-in,
 .search-btn {
   position: absolute;
-  top: 27vh;
+  top: 28vh;
   left: 50%;
   transform: translate(-50%);
-  /* padding: 4vh; */
   margin: auto;
   text-align: center;
   width: 70%;
@@ -147,7 +148,6 @@ h1 {
 }
 
 #city-in::placeholder {
-  /* font-weight: 300; */
   font-size: 2rem;;
   text-transform: none;
   background-color: none;
@@ -163,18 +163,16 @@ h1 {
 
 .city-slide {
   position: absolute;
-  top: 27vh;
+  top: 28vh;
   left: 50%;
   transform: translate(-50%);
-  /* padding: 2vh; */
   margin-top: 0px;
   margin-bottom: 0px;
   display: none;
-  /* overflow: hidden; */
   font-size: 35px;
   line-height: 50px;
   color: #ecf0f1;
-  /* height: fit-content; */
+  white-space: nowrap;
 }
 
 .city-slide-box {
@@ -204,13 +202,11 @@ h1 {
   top: 38vh;
   font-size: 2rem;
   font-weight: 700;
-  transition: transform .1s ease-out;
   cursor: pointer;
 }
 
 .search-btn:hover {
-  font-size: 2rem;
-  font-weight: 700;
+  text-shadow: 0px 0px 10px #0cbaba  ;
 }
 
 .weather-display {
@@ -252,7 +248,7 @@ h1 {
   height: 32vh;
   min-width: 280px;
   min-height: 280px;
-  background: linear-gradient(to top, #4fb576 0%, #44c489 15%, #28a9ae 25%, #28a2b7 50%, #4c7788 65%, #6c4f63 80%, #432c39 100%);
+  background: linear-gradient(to top, var(--gradient));
   border-radius: 160px;
   padding: 4px !important;
 
@@ -270,8 +266,6 @@ h1 {
   overflow: hidden;
 }
 
-
-
 .wind-disp {
   margin-bottom: -30px;
 }
@@ -279,7 +273,7 @@ h1 {
 .wind-direction {
   padding: 0px;
   font-size: 4rem;
-    background: linear-gradient(to right, #4fb576 0%, #44c489 15%, #28a9ae 25%, #28a2b7 50%, #4c7788 65%, #6c4f63 80%, #432c39 100%);
+    background: linear-gradient(to right, var(--gradient));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -288,9 +282,6 @@ h1 {
 #city-in:hover .city-slide {
   display: none;
 }
-
-
-
 
 @-webkit-keyframes change {
   0%, 12.66%, 100% {transform:translate3d(0,0,0);}
