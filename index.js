@@ -25,7 +25,7 @@ const fahrenheitToCelsius = (fahr) => ((fahr - 32) * 5) / 9;
 async function getWeather(city = 'Krakow') {
   try {
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city},pl&units=metric&APPID=3a9bfc72412a8f1e5528cd7b61cf524d`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${city},pl&units=metric&APPID=3a9bfc72412a8f1e5528cd7b61cf524d`,
       { mode: 'cors' }
     );
     const weatherData = await response.json();
@@ -47,7 +47,7 @@ function getWeatherByLocation() {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&&units=metric&APPID=3a9bfc72412a8f1e5528cd7b61cf524d`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&&units=metric&APPID=3a9bfc72412a8f1e5528cd7b61cf524d`
     )
       .then((response) => response.json())
       .then((data) => handleWeatherApp(data));
@@ -58,7 +58,7 @@ function handleWeatherApp(data) {
   console.log(data);
 
   const imgId = data.weather[0].icon;
-  weatherImg.src = `http://openweathermap.org/img/wn/${imgId}@2x.png`;
+  weatherImg.src = `https://openweathermap.org/img/wn/${imgId}@2x.png`;
   weatherDescription.innerHTML = `${data.weather[0].main}, ${data.weather[0].description}`;
   tempDisplay.innerHTML = Math.round(data.main.temp);
   tempSensedDisplay.innerHTML = Math.round(data.main.feels_like);
