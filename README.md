@@ -27,7 +27,7 @@ External API source: [OpenWeatherMap](https://openweathermap.org/current).
 - Fetching Data
 - CSS Transitions
 
-# Tools:
+## Tools:
 
 - Visual Studio Code
 - Javascript
