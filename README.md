@@ -10,10 +10,13 @@ Project is a part of The Odin Project [JavaScript learning curriculum](https://w
 
 ## Description
 
-Weather web application that allows you to check th weather in your area and in other cities by external API. You can change temperature display units by toggling `switch` in the left part of weather display window. This page script uses fetch to get weather information for typed city name. External API source: [OpenWeatherMap](https://openweathermap.org/current).
+Weather web application that allows you to check th weather in your area and in other cities by external API. You can change temperature display units by toggling `switch` in the left part of weather display window. This page script uses fetch to get weather information for typed city name.
 
+ **Highly recommended to add country abbreviations!**
 
- **Highly recommended to add country abbreviations!**. 
+External API source: [OpenWeatherMap](https://openweathermap.org/current).
+##
+
 ![](weatherApp.gif)
 
 ## Concepts used and learned:
