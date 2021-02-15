@@ -1,3 +1,6 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-use-before-define */
 const applyLocationBtn = document.querySelector('.apply-loc-btn');
 const cityInput = document.getElementById('city-in');
 const searchBtn = document.querySelector('.search-btn');

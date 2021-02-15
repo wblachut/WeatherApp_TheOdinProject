@@ -34,9 +34,7 @@
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
-  text-align: center;
-  justify-items: center;
-  align-content: center;
+  margin: auto;
 }
 
 input:checked + .slider {
