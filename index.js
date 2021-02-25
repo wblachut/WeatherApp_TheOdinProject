@@ -58,8 +58,6 @@ function getWeatherByLocation() {
 }
 
 function handleWeatherApp(data) {
-  console.log(data);
-
   const imgId = data.weather[0].icon;
   weatherImg.src = `https://openweathermap.org/img/wn/${imgId}@2x.png`;
   weatherDescription.innerHTML = `${data.weather[0].main}, ${data.weather[0].description}`;
@@ -78,7 +76,6 @@ function handleTempUnit(mode = 'defaultMode') {
   if (tempUnitToggle.checked) {
     tempUnit = fahrenheit;
     if (mode === 'entry') {
-      console.log('fetching with fahrenheit', data);
       tempDisplay.innerHTML = Math.round(
         celsiusToFahrenheit(tempDisplay.innerHTML)
       );
@@ -95,7 +92,6 @@ function handleTempUnit(mode = 'defaultMode') {
 }
 
 function enableCityInput() {
-  console.log('show input');
   cityInput.classList.add('active');
   cityInput.focus();
   citySlide.classList.remove('active');
@@ -125,10 +121,7 @@ searchBtn.addEventListener('click', () => {
 
 tempUnitToggle.addEventListener('change', function handleTempSwitch() {
   if (tempUnitToggle.checked) {
-    console.log('Checkbox is checked..');
     tempUnit = fahrenheit;
-    console.log(tempUnit);
-    console.log(celsiusToFahrenheit(tempDisplay.innerHTML));
     tempDisplay.innerHTML = Math.round(
       celsiusToFahrenheit(tempDisplay.innerHTML)
     );
@@ -138,9 +131,6 @@ tempUnitToggle.addEventListener('change', function handleTempSwitch() {
     handleTempUnit();
   } else {
     tempUnit = celsius;
-    console.log('Checkbox is not checked..');
-    console.log(tempUnit);
-    console.log(fahrenheitToCelsius(tempDisplay.innerHTML));
     tempDisplay.innerHTML = Math.round(
       fahrenheitToCelsius(tempDisplay.innerHTML)
     );

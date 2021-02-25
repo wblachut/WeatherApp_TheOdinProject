@@ -34,5 +34,5 @@ Weather web application that allows you to check th weather in your area and in 
 ## Some concepts to apply in future and possible upgrades:
 
 - upgrade animations display
-- fix project responsiveness
+- fix website responsiveness
 - add crazy animations for certain types of weather
