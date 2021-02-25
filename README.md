@@ -1,16 +1,21 @@
 # WeatherApp
 
-Hey! [Let's check the weather in your area!](https://wblachut.github.io/WeatherApp_TheOdinProject/)!
+Hey! [Let's check the weather!](https://wblachut.github.io/WeatherApp_TheOdinProject/)
 
 #
 
 ## PROJECT: WEATHER APP
 
-Project is a part of The Odin Project [JavaScript learning curriculum](https://www.theodinproject.com/courses/javascript). To learn more open the [assignment](https://www.theodinproject.com/courses/javascript/lessons/weather-app).
+Project is a part of The Odin Project [JavaScript learning curriculum](https://www.theodinproject.com/courses/javascript). To learn more open the [TOP assignment](https://www.theodinproject.com/courses/javascript/lessons/weather-app).
 
 ## Description
 
-Weather web application that allows you to check th weather in your area and in other cities by external API. You can change temperature display units by toggling `switch` in the left part of weather display window. This page script uses fetch to get weather information for typed city name. **Highly recommended to add country abbreviations!**. External API source: [OpenWeatherMap](https://openweathermap.org/current).
+Weather web application that allows you to check th weather in your area and in other cities by external API. You can change temperature display units by toggling `switch` in the left part of weather display window. This page script uses fetch to get weather information for typed city name.
+
+ **Highly recommended to add country abbreviations!**
+
+External API source: [OpenWeatherMap](https://openweathermap.org/current).
+##
 
 ![](weatherApp.gif)
 
@@ -22,7 +27,7 @@ Weather web application that allows you to check th weather in your area and in 
 - Fetching Data
 - CSS Transitions
 
-# Tools:
+## Tools:
 
 - Visual Studio Code
 - Javascript
